@@ -3,10 +3,12 @@ package com.App.Loanapp.controller;
 import com.App.Loanapp.dto.Loandto.LoanCalculationDTO;
 import com.App.Loanapp.dto.Loandto.LoanCalculationResult;
 import com.App.Loanapp.dto.Loandto.LoanDTO;
+import com.App.Loanapp.dto.Loandto.LoanStatistics;
 import com.App.Loanapp.model.Customer;
 import com.App.Loanapp.model.Loan;
 import com.App.Loanapp.repository.LoanRepository;
 import com.App.Loanapp.service.LoanService;
+import com.App.Loanapp.service.RepaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,9 +23,11 @@ import java.util.Optional;
 public class LoanController {
 
     @Autowired
-private LoanRepository loanRepository;
+    private LoanRepository loanRepository;
     @Autowired
     private LoanService loanService;
+    @Autowired
+    private RepaymentService repaymentService;
 
     @GetMapping
     public ResponseEntity<List<Loan>> getAllLoans() {
@@ -50,10 +54,17 @@ private LoanRepository loanRepository;
         return ResponseEntity.ok(loan);
     }
 
-   /* @PostMapping("/calculate")
+    @PostMapping("/calculate")
     public ResponseEntity<LoanCalculationResult> calculateLoan(
-            @RequestBody LoanCalculationDTO calculationDTO) {
-        LoanCalculationResult result = loanService.calculateLoan(calculationDTO);
+            @RequestBody LoanDTO calculationDTO) {
+        LoanCalculationResult result = repaymentService.generateAmortizationSchedule(calculationDTO);
         return ResponseEntity.ok(result);
-    }*/
+    }
+
+    @GetMapping("/statistics")
+    public ResponseEntity<LoanStatistics> getLoanStatistics() {
+        LoanStatistics statistics = repaymentService.calculateLoanStatistics();
+        return ResponseEntity.ok(statistics);
+    }
+
 }

@@ -31,6 +31,10 @@ public class Repayment {
     @Enumerated(EnumType.STRING)
     private RepaymentStatus status;
 
+    public Repayment(BigDecimal emi) {
+        this.emi = emi;
+    }
+
     public static Object builder() {
         return builder();
     }

@@ -2,10 +2,10 @@ package com.App.Loanapp.model;
 
 public enum LoanStatus {
     PENDING,
-    APPROVED,
+    ACTIVE,
     REJECTED,
     DISBURSED,
-    IN_REPAYMENT,
-    PAID,
+    INREPAYMENT,
+    PAID_OFF,
     DEFAULTED;
 }

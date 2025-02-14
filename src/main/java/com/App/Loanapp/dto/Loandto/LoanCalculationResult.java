@@ -1,27 +1,20 @@
 package com.App.Loanapp.dto.Loandto;
 
+import com.App.Loanapp.dto.Repaymentdto.PaymentSchedule;
 import java.math.BigDecimal;
+import java.util.List;
 
 public class LoanCalculationResult {
-    private BigDecimal monthlyPayment;
+    private List<PaymentSchedule> paymentSchedule;
     private BigDecimal totalInterest;
     private BigDecimal totalAmount;
 
-    public LoanCalculationResult() {}
-
-    public LoanCalculationResult(BigDecimal monthlyPayment, BigDecimal totalInterest, BigDecimal totalAmount) {
-        this.monthlyPayment = monthlyPayment;
-        this.totalInterest = totalInterest;
-        this.totalAmount = totalAmount;
-
+    public List<PaymentSchedule> getPaymentSchedule() {
+        return paymentSchedule;
     }
 
-    public BigDecimal getMonthlyPayment() {
-        return monthlyPayment;
-    }
-
-    public void setMonthlyPayment(BigDecimal monthlyPayment) {
-        this.monthlyPayment = monthlyPayment;
+    public void setPaymentSchedule(List<PaymentSchedule> paymentSchedule) {
+        this.paymentSchedule = paymentSchedule;
     }
 
     public BigDecimal getTotalInterest() {
@@ -40,7 +33,6 @@ public class LoanCalculationResult {
         this.totalAmount = totalAmount;
     }
 
-    public BigDecimal getMonthlyInterestRate() {
-        return getMonthlyInterestRate();
+    public void setMonthlyPayment(BigDecimal monthlyPayment) {
     }
 }

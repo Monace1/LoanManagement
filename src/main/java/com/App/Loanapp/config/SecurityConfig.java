@@ -54,7 +54,9 @@ public class SecurityConfig {
                                 "/auth/**",
                                 "/auth/login",
                                 "/customers/**",
-                                "/loans/**"
+                                "/loans/**",
+                                "/loans/statistics",
+                                "/loans/calculate"
                         )
                         .permitAll()
                         .anyRequest().authenticated()
