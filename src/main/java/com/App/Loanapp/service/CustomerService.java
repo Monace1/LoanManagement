@@ -44,6 +44,10 @@ public class CustomerService {
         customerRepository.deleteById(id);
     }
 
+    public void deleteCustomers(List<Long> ids) {
+        customerRepository.deleteAllById(ids);
+    }
+
     public List<Customer> getAllCustomers() {
         return customerRepository.findAll();
     }

@@ -21,77 +21,58 @@ public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Setter
-    private BigDecimal principal_amount;
+    private BigDecimal principalAmount;
     private BigDecimal interestRate;
-    private Integer repayment_period;
+    private Integer repaymentPeriod;
     private LocalDate duedate;
     private LocalDate startdate = LocalDate.now();
-
-    @Enumerated(EnumType.STRING)
-    private Frequency frequency;
-
+   // @Enumerated(EnumType.STRING)
+  //  private Frequency frequency;
     @Enumerated(EnumType.STRING)
     private LoanStatus status;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", nullable = false)
     @JsonBackReference
     private Customer customer;
-
     @OneToMany(mappedBy = "loan", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Repayment> repayments;
-
-    public void setPrincipalAmount(BigDecimal principal_amount) {
-        this.principal_amount = principal_amount;
+    public void setPrincipalAmount(BigDecimal principalAmount) {
+        this.principalAmount = principalAmount;
     }
-    public void setRepaymentPeriod(Integer repayment_period) {
-        this.repayment_period = repayment_period;
-    }
-
-    public void setRepayment_period(Integer repayment_period) {
-        this.repayment_period = repayment_period;
+    public void setRepaymentPeriod(Integer repaymentPeriod) {
+        this.repaymentPeriod = repaymentPeriod;
     }
 
-    public void setFrequency(Frequency frequency) {
+    /*public void setFrequency(Frequency frequency) {
         this.frequency = frequency;
-    }
-
+    }*/
     public void setStatus(LoanStatus status) {
         this.status = status;
     }
-
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-
     public void setDuedate(LocalDate duedate) {
         this.duedate = duedate;
     }
-
     public Long getId() {
         return id;
     }
-
     public Customer getCustomer() {
         return customer;
     }
-
-    public Integer getRepayment_period() {
-        return repayment_period;
+    public Integer getRepaymentPeriod() {
+        return repaymentPeriod;
     }
-
     public LoanStatus getStatus() {
         return status;
     }
-
-    public Frequency getFrequency() {
+    /*public Frequency getFrequency() {
         return frequency;
-    }
-
-    public BigDecimal getPrincipal_amount() {
-        return principal_amount;
+    }*/
+    public BigDecimal getPrincipalAmount() {
+        return principalAmount;
     }
 
     public List<Repayment> getRepayments() {
@@ -127,6 +108,6 @@ public class Loan {
     }
 
     public BigDecimal getAmount() {
-        return principal_amount;
+        return principalAmount;
     }
 }

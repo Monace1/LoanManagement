@@ -42,6 +42,13 @@ public class CustomerController {
         return ResponseEntity.noContent().build();
     }
 
+    @DeleteMapping
+    public ResponseEntity<Void> deleteMultipleCustomers(@RequestBody List<Long> ids) {
+        customerService.deleteCustomers(ids);
+        return ResponseEntity.noContent().build();
+    }
+
+
     @GetMapping
     public ResponseEntity<List<Customer>> getAllCustomers() {
         List<Customer> customers = customerService.getAllCustomers();

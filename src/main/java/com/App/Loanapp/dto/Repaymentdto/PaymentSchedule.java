@@ -1,12 +1,15 @@
 package com.App.Loanapp.dto.Repaymentdto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.stereotype.Component;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Component
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class PaymentSchedule {
     private Integer paymentNumber;
     private LocalDate paymentDate;
@@ -14,6 +17,8 @@ public class PaymentSchedule {
     private BigDecimal interestAmount;
     private BigDecimal totalPayment;
     private BigDecimal remainingBalance;
+
+
 
     public Integer getPaymentNumber() {
         return paymentNumber;

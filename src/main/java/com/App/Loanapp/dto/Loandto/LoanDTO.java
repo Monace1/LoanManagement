@@ -1,14 +1,18 @@
 package com.App.Loanapp.dto.Loandto;
 
 import com.App.Loanapp.model.Frequency;
+import com.App.Loanapp.model.Loan;
 import com.App.Loanapp.model.LoanStatus;
+import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Data
 @Component
 public class LoanDTO {
+
     private Long customerId;
     private BigDecimal principalAmount;
     private BigDecimal interestRate;
@@ -17,7 +21,7 @@ public class LoanDTO {
     private LocalDate created_at;
     private Frequency frequency;
     private LoanStatus status;
-    //private Loan loan;
+    private Long loanid;
 
 
     public BigDecimal getPrincipalAmount() {
@@ -44,7 +48,8 @@ public class LoanDTO {
         this.repaymentPeriod = repaymentPeriod;
     }
 
-    public LocalDate getDuedate() {
+    public LocalDate getDuedate()
+    {
         return duedate;
     }
 
@@ -76,6 +81,23 @@ public class LoanDTO {
     public void setCreated_at(LocalDate created_at) {
         this.created_at = created_at;
     }
+
+    public Long getLoanId() {
+        return loanid;
+    }
+
+    /*public Loan getLoan() {
+        return loan;
+    }
+
+    public void setLoan(Loan loan) {
+        this.loan = loan;
+    }*/
+
+   /* public void setLoan_id(Long loan_id) {
+        this.loan_id = loan_id;
+    }*/
+
    /* public Loan getLoan() {
         return loan;
     }

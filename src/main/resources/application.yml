@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/loandb3
+    url: jdbc:mysql://localhost:3306/loan6
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -30,3 +30,6 @@ logging:
   spring:
   main:
     allow-circular-references: true
+
+server:
+  port: 8000

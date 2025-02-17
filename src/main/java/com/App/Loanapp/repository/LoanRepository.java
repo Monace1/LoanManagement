@@ -11,10 +11,10 @@ import java.math.BigDecimal;
 @Repository
 public interface LoanRepository extends JpaRepository<Loan, Long> {
 
-    @Query("SELECT SUM(l.principal_amount) FROM Loan l")
+    @Query("SELECT SUM(l.principalAmount) FROM Loan l")
     BigDecimal findSumOfPrincipalAmount();
 
-    @Query("SELECT SUM(r.amount_due) FROM Repayment r")
+    @Query("SELECT SUM(r.amountDue) FROM Repayment r")
     BigDecimal findSumOfRepayments();
 
     Long countByStatus(LoanStatus status);

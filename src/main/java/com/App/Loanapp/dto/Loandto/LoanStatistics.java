@@ -1,10 +1,14 @@
 package com.App.Loanapp.dto.Loandto;
 
-import org.springframework.stereotype.Component;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-@Component
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class LoanStatistics {
     private BigDecimal totalDisbursed;
     private BigDecimal totalPaid;
@@ -12,6 +16,13 @@ public class LoanStatistics {
     private Integer activeLoans;
     private Integer paidOffLoans;
 
+    public LoanStatistics(BigDecimal totalDisbursed, BigDecimal totalPaid, BigDecimal outstandingBalance, int activeLoans, int paidOffLoans) {
+        this.totalDisbursed = totalDisbursed;
+        this.totalPaid =totalPaid;
+        this.outstandingBalance = outstandingBalance;
+        this.activeLoans = activeLoans;
+        this.paidOffLoans = paidOffLoans;
+    }
 
     public BigDecimal getTotalDisbursed() {
         return totalDisbursed;

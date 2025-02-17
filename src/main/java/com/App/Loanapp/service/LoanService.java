@@ -57,8 +57,14 @@ public class LoanService {
         loan.setInterestRate(loanDTO.getInterestRate());
         loan.setRepaymentPeriod(loanDTO.getRepaymentPeriod());
         loan.setDuedate(loanDTO.getDuedate());
-        loan.setFrequency(loanDTO.getFrequency());
-        loan.setStatus(LoanStatus.PENDING);
+      //  loan.setFrequency(loanDTO.getFrequency());
+        loan.setStatus(LoanStatus.PENDING
+                .ACTIVE
+                .REJECTED
+                .DISBURSED
+                .PAID_OFF
+                .DEFAULTED
+                .INREPAYMENT);
         loan.setCustomer(customer);
         Loan savedLoan = loanRepository.save(loan);
         logger.info("Loan created successfully with ID: {}", savedLoan.getId());
@@ -81,7 +87,7 @@ public class LoanService {
         loan.setInterestRate(loanDTO.getInterestRate());
         loan.setRepaymentPeriod(loanDTO.getRepaymentPeriod());
         loan.setDuedate(loanDTO.getDuedate());
-        loan.setFrequency(loanDTO.getFrequency());
+      //  loan.setFrequency(loanDTO.getFrequency());
 
         if (loanDTO.getCustomerId() != null && !loan.getCustomer().getId().equals(loanDTO.getCustomerId())) {
             Customer customer = customerRepository.findById(loanDTO.getCustomerId())
